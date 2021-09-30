@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주사위 게임</title>
+</head>
+<body>
+    <h2>주사위 게임</h2>
+    <script>
+        'use strict';
+
+        while(true){
+            const ran = Math.random()*6;
+            let com = Math.floor(ran) + 1;
+
+            const user = Number(prompt(`주사위 숫자를 맞춰보세요(1~6) : `));
+
+            if (user == com){
+                console.log(`정답은 ${com}입니다. 맞췄습니다! 🎉\n 게임을 종료합니다.`);
+                break;
+            }else{
+                console.log(`정답은 ${com}입니다. 틀렸습니다 😛`); 
+            }
+           // ran = null;
+        }
+    </script>
+</body>
+</html>
