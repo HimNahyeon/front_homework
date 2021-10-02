@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주민번호 유효성검사</title>
+</head>
+<body>
+    <h2>주민번호 유효성검사</h2>
+
+    <script>
+        'use strict'
+        let iNum = prompt(`주민등록번호 13자리를 입력하세요.('-'제외)`),
+            code = [2,3,4,5,6,7,8,9,2,3,4,5], //곱할값
+            numArr = iNum.split(""), //한글자씩 배열로 받아옴
+            total = 0;
+            
+            
+        for(let i=0; i<numArr.length-1; i++){
+            numArr[i] = numArr[i] * code[i];         
+        }
+        
+        let last = numArr[numArr.length-1]; //마지막자리
+
+        for(let i=0; i<numArr.length-1; i++){
+            total += numArr[i];
+        }
+
+        total = total % 11; // 재활용. sum에다 나머지값 그대로 넣음
+        
+        total = 11 - total;  // 재활용. 11에서 결과값을 뺀걸 sum에 다시넣음
+
+        if(total > 9){
+            total = total % 10;
+        }
+
+        if(total == last){
+            alert('유효한 주민등록번호 입니다.');
+        }else{
+            alert('유효하지 않은 주민등록번호 입니다.');
+        }
+
+    </script>
+</body>
+</html>
